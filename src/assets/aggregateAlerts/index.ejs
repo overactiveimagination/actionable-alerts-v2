@@ -1,0 +1,289 @@
+  <!-- Text between angle brackets is an HTML tag and is not displayed.
+Most tags, such as the HTML and /HTML tags that surround the contents of
+a page, come in pairs; some tags, like HR, for a horizontal rule, stand 
+alone. Comments, such as the text you're reading, are not displayed when
+the Web page is shown. The information between the HEAD and /HEAD tags is 
+not displayed. The information between the BODY and /BODY tags is displayed.-->
+  <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width"/>
+    <link rel="stylesheet" href="style.css" data-inline>
+  </head>
+  <!-- The information between the BODY and /BODY tags is displayed.-->
+  <body>
+      <table class="center">
+        <tr>
+          <td>
+              <table class="body table-css">
+                  <tr>
+                      <td class="container-padding">
+                          <center>
+                            <!-- main layout:begin -->
+                              <table class="container table-css2 mt-10">
+                                  <tr class="tr-css align-left">
+                                    <td>
+                                      <hr class="top-bar">
+                                    </td>
+                                  </tr>
+                              </table>
+                              <!-- identity:begin -->
+                              <table class="container table-css2 identity">
+                                  <tr class="tr-css align-left">
+                                      <td class="td-css td-insight-logo">
+                                          <center>
+                                              <img
+                                                   src='<%= assetsUrl %>/actionable_alerts_logo.png'
+                                                   height="25" width="25" align="left"/>
+                                          </center>
+                                      </td>
+                                      <td class="td-css"><h3 class="header-insight-logo">Truvalue Labs</h3></td>
+                                  </tr>
+                              </table>
+                              <!-- identity:end -->
+                              <!-- email header:start -->
+                              <table class="container table-css2 mt-10">
+                                  <tr class="tr-css align-left">
+                                    <td>
+                                      <div class="email-title">AI Insights</div>
+                                    </td>
+                                  </tr>
+                                  <tr class="tr-css align-left">
+                                    <td >
+                                      <div class="aggregate-title"><%= aggregateTitle %></div>
+                                    </td>
+                                  </tr>
+                                  <tr class="tr-css align-left">
+                                    <td >
+                                      <div class="title-date"><%= todaysDate %></div>
+                                    </td>
+                                  </tr>
+                              </table>
+                              <!-- email header:end -->
+                              <% if(spotlightAlerts.length > 0) { %>
+                            <!-- Spotlights:start -->
+                              <table class="container table-css2 mt-10">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <div class="segment-title">Spotlight Events</div>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                          <td>
+                                              <hr class="hr-bar">
+                                          </td>
+                                      </tr>
+                                </tbody>
+                              </table>
+                              <!-- Spotlights content:start -->
+                              <% for(var i=0; i < spotlightAlerts.length; i++) { %>
+                              <table class="container table-css2 mt-10">
+                                <tbody>
+                                  <tr>
+                                    <td>
+                                      <!-- left column:start -->
+                                        <table class="company-container">
+                                            <tbody>
+                                              <tr>
+                                                <td class="circle-container"><div class="circle"></div></td>
+                                                <td class="company-name"><a href="<%= `${appUrl}/app/company/${spotlightAlerts[i].primaryInstrumentTvlId}` %> "><%= spotlightAlerts[i].entityName %></a></td>
+                                              </tr>
+                                              <tr>
+                                                <td></td>
+                                                <td>
+                                                    <span class="article-category">
+                                                        <span> <%= truncateText(spotlightAlerts[i].individualCategory) %> </span>
+                                                        <% if(spotlightAlerts[i].isCategoryMaterial) { %>
+                                                        <span><img src='<%= assetsUrl %>/asterisk.png' width="7" style="padding-left:8px;" /></span>
+                                                        <% } %>
+                                                    </span>
+                                                </td>
+                                            <!-- Keeping it for now in case it comes back again in next sprint -->
+                                             <!-- <td class="company-symbol"><%= spotlightAlerts[i].symbol %></td> -->
+                                              </tr>
+                                              <tr>
+                                                  <td></td>  
+                                                  <td class="spotlight-data-points"><%= spotlightAlerts[i].articleCount %> data points</td>
+                                              </tr>
+                                            </tbody>
+                                          </table>
+                                      <!-- left column:end -->
+                                       <!-- right column:start -->
+                                        <table class="content-container">
+                                            <tbody>
+                                              <tr>
+                                                <td class="article-header"><a href="<%= spotlightAlerts[i].articleUrl %>"><%= spotlightAlerts[i].headline %></a></td>
+                                              </tr>
+                                              <tr>
+                                                <td>
+                                                    <table>
+                                                        <tbody>
+                                                          <tr>
+                                                            <td class="ptl-0"><a href="<%= spotlightAlerts[i].articleUrl %>" class="article-source-link"><%= spotlightAlerts[i].articleSource %></a></td>
+                                                          </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </td>
+                                              </tr>
+                                            </tbody>
+                                          </table>
+                                    <!-- right column:end -->
+                                    </td>
+                                  </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <hr class="hr-bar">
+                                        </td>
+                                    </tr>
+                                </tbody>
+                              </table>
+                              <% } %> 
+                               <!-- Spotlights content:end -->
+                              <table class="container table-css2 mt-10">
+                                <tr>
+                                  <td class="footnote">
+                                    <div>Spotlight Events are key ESG events automatically identified by our event detection algorithm.</div>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    <div  class="appendix"><span><img src='<%= assetsUrl %>/asterisk.png' width="7" /></span> = Material SASB Category</div>
+                                  </td>
+                                </tr>
+                              </table>
+                               <!-- Spotlights:end -->
+                            <% } %> 
+        
+                            <% if(lowVolumeAlerts.length > 0) { %>
+                               <!-- Low volume articles:start -->
+                              <table class="container table-css2 mt-10 low-volume-articles-container">
+                                  <tbody>
+                                      <tr>
+                                          <td>
+                                              <div class="segment-title">NOTABLE PULSE EVENTS</div>
+                                          </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <hr class="hr-bar">
+                                            </td>
+                                        </tr>
+                                  </tbody>
+                                </table>
+                                <!-- Low volume articles content:start -->
+                                <% for(var i=0; i < lowVolumeAlerts.length; i++) { %>
+                                <table class="container table-css2 mt-10">
+                                  <tbody>
+                                    <tr>
+                                      <td>
+                                         <!-- left column:start -->
+                                          <table class="company-container">
+                                              <tbody>
+                                                <tr>
+                                                  <td class="company-name">
+                                                    <a href="<%= `${appUrl}/app/company/${lowVolumeAlerts[i].primaryInstrumentTvlId}` %> "><%= lowVolumeAlerts[i].entityName %></a>
+                                                  </td>
+                                                </tr>
+                                            <!-- Keep it for now -->
+                                             <!-- <tr>
+                                                  <td class="company-symbol"><%= lowVolumeAlerts[i].symbol %></td>
+                                                </tr> -->
+                                              </tbody>
+                                            </table>
+                                        <!-- left column:end -->
+                                         <!-- right column:start -->
+                                          <table class="content-container low-volume-content-container">
+                                              <tbody>
+                                                <tr>
+                                                  <td class="article-header low-volume-article-header">
+                                                      <a href="<%= lowVolumeAlerts[i].articleUrl %>"><%= lowVolumeAlerts[i].title %></a>
+                                                  </td>
+                                                </tr>
+                                                <tr>
+                                                  <td>
+                                                      <table>
+                                                          <tbody>
+                                                            <tr>
+                                                              <td class="ptl-0"><a href="<%= lowVolumeAlerts[i].articleUrl %>" class="article-source-link"><%= lowVolumeAlerts[i].sourceName %></a></td>
+                                                            </tr>
+                                                          </tbody>
+                                                      </table>
+                                                  </td>
+                                                </tr>
+                                              </tbody>
+                                            </table>
+                                      <!-- right column:end -->
+                                      </td>
+                                     
+                                     
+                                    </tr>
+                                      <tr>
+                                          <td colspan="2">
+                                              <hr class="hr-bar">
+                                          </td>
+                                      </tr>
+                                  </tbody>
+                                </table>
+                                <% } %> 
+                                 <!-- Low volume articles content:end -->
+                                <table class="container table-css2 mt-10">
+                                  <tr>
+                                    <td class="footnote">
+                                      <div>Notable Pulse Events are from companies that rarely have data.</div>
+                                    </td>
+                                  </tr>
+                                </table>
+                                 <!-- Low volume articles:end -->
+                              <% } %> 
+                              
+                              <table class="container table-css2 mt-60">
+                                  <tr class="tr-css align-center">
+                                    <td class="td-edit-alerts">
+                                      <a href="<%= `${appUrl}/app/settings?view=alerts` %> ">Edit My Alerts</a>
+                                    </td>
+                                  </tr>
+                              </table>
+        
+                              <table class="container table-css2 mt-10">
+                                  <tr class="tr-css align-center">
+                                    <td class="td-support">
+                                      <span class="footnote">If you are having issues, please email</span>
+                                      <a href="mailto:support@truvaluelabs.com">support@truvaluelabs.com</a>
+                                    </td>
+                                  </tr>
+                              </table>
+        
+                              <table class="container table-css2 mt-120 disclaimer-container">
+                                  <tr class="tr-css">
+                                    <td>
+                                      <div class="disclaimer-content">
+                                        <span class="disclaimer-header">General Disclaimer</span>
+                                        <span>This email and all of the information contained in it, including without 
+                                          limitation all text and data, is the property of Truvalue Labs, Inc. and is 
+                                          provided for informational purposes only. Truvalue Labs, Inc. (“Truvalue Labs”) 
+                                          is not responsible for any losses suffered or caused by any person or legal entity acting 
+                                          on or refraining from action as a result of any material in this document. This document 
+                                          is prepared for the use of Truvalue Labs clients and may not be sold, reproduced, 
+                                          distributed, transmitted or disclosed, in whole or in part, in any form or manner, without
+                                           the express written consent of Truvalue Labs.</span>
+                                        <div class="mt-10">Copyright © 2020 Truvalue Labs, Inc. All rights reserved.</div>
+                                        <div  class="disclaimer-header mt-10">About Truvalue Labs</div>
+                                        <span>Truvalue Labs is the first company to apply AI to uncover timely ESG data on a variety of asset classes. The company’s mission is to deliver increased transparency to investment professionals by providing data and analytics that go beyond traditional fundamentals.</span>
+                                        <div class='mt-10'>Visit <a href="www.truvaluelabs.com">www.truvaluelabs.com</a> to learn more about the SaaS and API products.</div>
+                                      </div>
+                                    </td>
+                                  </tr>
+                              </table>
+                              <table class="mt-120"></table>
+                            <!-- main layout ends -->
+                          </center>
+                      </td>
+                  </tr>
+              </table>
+          </td>
+        </tr>
+      </table>
+  </body>
+</html>
