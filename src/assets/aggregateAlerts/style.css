@@ -1,52 +1,11 @@
-@import url("https://fonts.googleapis.com/css?family=Merriweather");
-@import url("https://fonts.googleapis.com/css?family=Roboto");
-
-@font-face {
-  font-family: "Source Sans Pro";
-  font-style: normal;
-  font-weight: 300;
-  src: local("Source Sans Pro Light"), local("SourceSansPro-Light"),
-    url("https://fonts.gstatic.com/s/sourcesanspro/v9/toadOcfmlt9b38dHJxOBGMw1o1eFRj7wYC6JbISqOjY.ttf")
-      format("truetype");
-}
-
-@font-face {
-  font-family: "Source Sans Pro";
-  font-style: normal;
-  font-weight: 400;
-  src: local("Source Sans Pro"), local("SourceSansPro-Regular"),
-    url("https://fonts.gstatic.com/s/sourcesanspro/v9/ODelI1aHBYDBqgeIAH2zlNzbP97U9sKh0jjxbPbfOKg.ttf")
-      format("truetype");
-}
-
-@font-face {
-  font-family: "Source Sans Pro";
-  font-style: normal;
-  font-weight: 500;
-  src: local("Source Sans Pro Light"), local("SourceSansPro-Light"),
-    url("https://fonts.gstatic.com/s/sourcesanspro/v9/toadOcfmlt9b38dHJxOBGMw1o1eFRj7wYC6JbISqOjY.ttf")
-      format("truetype");
-}
-
 body {
   background: #ffffff;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
 }
 
 a {
-  color: #7b7b7b;
+  color: #74498f;
   text-decoration: none;
-}
-
-a:hover {
-  color: #7b7b7b !important;
-}
-
-a:active {
-  color: #7b7b7b;
-}
-
-a:visited {
-  color: #7b7b7b;
 }
 
 h1 a:active {
@@ -501,7 +460,7 @@ table.alert:hover td {
     width: 100%;
   }
   .circle-container {
-    width: 15px;
+    width: 10px;
     vertical-align: middle;
   }
   .content-container {
@@ -528,9 +487,10 @@ table.alert:hover td {
     padding-top: 1px;
   }
   .circle-container {
-    padding-right: 10px;
+    /* padding-right: 3px; */
     vertical-align: top;
-    padding-top: 3px;
+    padding-top: 5px;
+    width: 10px;
   }
   .table-css {
     max-width: 750px;
@@ -550,7 +510,7 @@ body {
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   color: #222222;
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
   font-weight: normal;
   text-align: left;
   line-height: 19px;
@@ -568,7 +528,7 @@ body {
   height: 100%;
   width: 100%;
   color: #222222;
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
   font-weight: normal;
   line-height: 19px;
   font-size: 14px;
@@ -601,7 +561,7 @@ body {
   border-collapse: collapse !important;
   vertical-align: top;
   color: #222222;
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
   font-weight: normal;
   line-height: 19px;
   font-size: 14px;
@@ -781,7 +741,7 @@ a.primary-link {
   vertical-align: top;
   text-align: left;
   color: #222222;
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
   font-weight: normal;
   line-height: 19px;
   font-size: 14px;
@@ -799,7 +759,7 @@ a.primary-link {
   vertical-align: top;
   text-align: left;
   color: #222222;
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
   font-weight: normal;
   line-height: 19px;
   font-size: 14px;
@@ -825,6 +785,11 @@ a.primary-link {
 
 .td-insight-logo {
   width: 10px;
+}
+
+.td-insight-logo img {
+  margin-top: 3px;
+  margin-bottom: 40px;
 }
 
 .header-insight-logo {
@@ -885,6 +850,7 @@ a.primary-link {
   background: #d3d3d3;
   border: none;
   height: 1px;
+  margin: 15px 0;
 }
 
 .article-header {
@@ -898,6 +864,7 @@ a.primary-link {
 
 .article-header a {
   color: #000000;
+  line-height: 130%;
 }
 
 .article-header a:hover {
@@ -914,7 +881,6 @@ a.primary-link {
 .segment-title {
   font-weight: bold;
   font-size: 12px;
-  margin: 10px 0;
   text-transform: uppercase;
 }
 
@@ -979,6 +945,8 @@ a.primary-link {
 .spotlight-materiality-indicator {
   color: #6d498f;
   font-size: 12px;
+  margin: 0;
+  padding: 0;
 }
 
 .fitwidth {
@@ -1000,7 +968,6 @@ a.primary-link {
 }
 
 .title-date {
-  font-weight: 500;
   font-size: 12px;
   color: #888888;
   margin-bottom: 30px;

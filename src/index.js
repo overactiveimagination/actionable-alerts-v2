@@ -1,6 +1,7 @@
 const path = require("path");
 const Email = require("email-templates");
 const moment = require("moment");
+const _ = require("lodash");
 var express = require("express");
 
 var app = express();
@@ -55,15 +56,17 @@ let context = {
       primaryInstrumentTvlId: "8bb6651b-007b-4df8-8ee7-9b485d5911d5",
       entityName: "Fiat Chrysler Automobiles NV",
       startMs: 1584489600000,
-      headline:
-        "Updated at 12:45 PM EDT BREAKING NEWS: Workers shut production in auto plants throughout Michigan and Ohio, in defiance of UAW and management",
       articleId: "5e727dd4d9386e6c5063ce21",
       articleSource: "World Socialist Web Site",
       hourMs: 1584489600000,
       articleCount: 2,
+      displayArticle: {
+        articleUrl:
+          "http://ct.moreover.com/?a=41655921697&p=48m&v=1&x=TXL6ulBc0aM7SYh6Aiws9g",
+        headline:
+          "Updated at 12:45 PM EDT BREAKING NEWS: Workers shut production in auto plants throughout Michigan and Ohio, in defiance of UAW and management"
+      },
       individualCategory: "Labor Practices aoeuaoe ueao aoe uaoeuoeauoe",
-      articleUrl:
-        "http://ct.moreover.com/?a=41655921697&p=48m&v=1&x=TXL6ulBc0aM7SYh6Aiws9g",
       isCategoryMaterial: true,
       symbol: "FCA"
     }
@@ -871,7 +874,8 @@ context = Object.assign(context, {
   assetsUrl,
   appUrl,
   todaysDate,
-  truncateText
+  truncateText,
+  _
 });
 
 const template = `${__dirname}/assets/aggregateAlerts`;
